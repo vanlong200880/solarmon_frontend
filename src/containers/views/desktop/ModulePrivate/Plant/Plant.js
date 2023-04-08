@@ -49,8 +49,8 @@ class Plant extends BaseComponent {
     componentDidMount() {
         document.addEventListener('click', this.handleClickOutside);
         this.loadConfigDefaultDate();
-        // this.getDetailProject();
-        // this.getDataChart();
+        this.getDetailProject();
+        this.getDataChart();
 
     }
 

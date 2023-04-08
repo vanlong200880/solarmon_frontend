@@ -10,7 +10,6 @@ class RowItem extends Component {
         var item = this.props.dataItem;
         var irradiance = item.irradiance;
         var alerts = item.alerts;
-        const { t } = this.props;
 
         return (
             <div className="body-row" key={item.id}>
@@ -41,18 +40,20 @@ class RowItem extends Component {
                 <div className="body-col width10 text-end" style={{ width: "150px" }}><p>{item.installed_power}</p></div>
                 {Libs.isArrayData(irradiance) ?
                     irradiance.map((v, k) => {
-                        return (
-                            <div key={k} className="body-col width10 text-end" style={{ width: "150px" }}>
-                                {!Libs.isBlank(v.irradiancePoA) ? <span>{v.irradiancePoA} W/m<sup className="sub">2</sup></span> : ""}
-                            </div>
-                        );
+                        if (k < 2) {
+                            return (
+                                <div key={k} className="body-col width10 text-end" style={{ width: "150px" }}>
+                                    {!Libs.isBlank(v.irradiancePoA) ? <span>{v.irradiancePoA} W/m<sup className="sub">2</sup></span> : ""}
+                                </div>
+                            );
+                        }
                     })
                     :
                     ""
                 }
 
                 <div className="body-col width10 text-end" style={{ width: "150px" }}>
-                    {!Libs.isBlank(item.power_now) ? <p>{Libs.formatNum(item.power_now, '#,###.##')} kWh</p> : ""}
+                    {!Libs.isBlank(item.power_now) ? <p>{Libs.formatNum(item.power_now, '#,###.##')} kW</p> : ""}
                 </div>
 
                 <div className="body-col width10 text-end" style={{ width: "150px" }}>

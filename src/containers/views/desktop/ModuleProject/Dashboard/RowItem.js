@@ -33,7 +33,7 @@ class RowItem extends Component {
         return (
             <div className="body-row" key={item.id}>
                 <ReactTooltip />
-                <div className="body-col width5" style = {{width: "100px"}}>
+                <div className="body-col width5" style={{ width: "100px" }}>
                     <div className="project-status text-center">
                         {Libs.isArrayData(alerts) ?
                             alerts.map((v, i) => {
@@ -52,40 +52,43 @@ class RowItem extends Component {
 
                     </div>
                 </div>
-                <div className="body-col width15" style = {{width: "250px"}}><p>
+                <div className="body-col width15" style={{ width: "250px" }}><p>
                     <NavLink to={"/project/" + item.hash_id}><strong>{item.name}</strong></NavLink>
 
                 </p></div>
-                <div className="body-col width10 text-end" style = {{width: "150px"}}><p>{item.installed_power_client}</p></div>
+                <div className="body-col width10 text-end" style={{ width: "150px" }}><p>{item.installed_power_client}</p></div>
                 {Libs.isArrayData(irradiance) ?
                     irradiance.map((v, k) => {
-                        return (
-                            <div key={k} className="body-col width10 text-end" style = {{width: "150px"}}>
-                                {!Libs.isBlank(v.irradiancePoA) ? <span>{v.irradiancePoA} W/m<sup className="sub">2</sup></span> : ""}
-                            </div>
-                        );
+                        if (k < 2) {
+                            return (
+                                <div key={k} className="body-col width10 text-end" style={{ width: "150px" }}>
+                                    {!Libs.isBlank(v.irradiancePoA) ? <span>{v.irradiancePoA} W/m<sup className="sub">2</sup></span> : ""}
+                                </div>
+                            );
+                        }
+
                     })
                     :
                     ""
                 }
 
-                <div className="body-col width10 text-end" style = {{width: "150px"}}>
-                    {!Libs.isBlank(item.power_now) ? <p>{Libs.formatNum(item.power_now, '#,###.##')} kWh</p> : ""}
+                <div className="body-col width10 text-end" style={{ width: "150px" }}>
+                    {!Libs.isBlank(item.power_now) ? <p>{Libs.formatNum(item.power_now, '#,###.##')} kW</p> : ""}
                 </div>
 
-                <div className="body-col width10 text-end" style = {{width: "150px"}}>
+                <div className="body-col width10 text-end" style={{ width: "150px" }}>
                     {!Libs.isBlank(item.energy_today) ? <p>{Libs.formatNum(item.energy_today, '#,###.##')} kWh</p> : ""}
                 </div>
 
-                <div className="body-col width10 text-end" style = {{width: "150px"}}>
+                <div className="body-col width10 text-end" style={{ width: "150px" }}>
                     {!Libs.isBlank(item.last_month) ? <p>{Libs.formatNum(item.last_month, '#,###.##')} kWh</p> : ""}
                 </div>
 
-                <div className="body-col width10 text-end" style = {{width: "150px"}}>
+                <div className="body-col width10 text-end" style={{ width: "150px" }}>
                     {!Libs.isBlank(item.lifetime) ? <p>{Libs.formatElectricalUnit(item.lifetime, 'h')}</p> : ""}
                 </div>
-                <div className="body-col width10 text-end" style = {{width: "150px"}}><p>{Libs.formatNum(item.revenue, '#.###')} VNĐ</p></div>
-                <div className="body-col width10 text-end" style = {{width: "150px"}}><p>{item.last_updated}</p></div>
+                <div className="body-col width10 text-end" style={{ width: "150px" }}><p>{Libs.formatNum(item.revenue, '#.###')} VNĐ</p></div>
+                <div className="body-col width10 text-end" style={{ width: "150px" }}><p>{item.last_updated}</p></div>
             </div>
         );
     }
