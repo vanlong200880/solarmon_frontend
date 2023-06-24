@@ -60,17 +60,17 @@ class RowItem extends Component {
                 <div style={{width: "250px"}}  className="body-col width15 text-break"><p>{item.serial_number}</p></div>
                 <div style={{width: "150px"}}  className="body-col width10 text-break"><p>{item.device_type_name}</p></div>
                 <div style={{width: "150px"}}  className="body-col width10">
-                    {!Libs.isBlank(item.power_now) ? <p>{Libs.formatNum(item.power_now, '#,###.##')} kW</p> : ""}
+                    {!Libs.isBlank(item.power_now) ? <p>{Libs.formatNum(item.power_now, '#,###.##')} kW</p> : "N/A"}
                 </div>
                 <div style={{width: "150px"}}  className="body-col width10">
-                    {!Libs.isBlank(item.energy_today) ? <p>{Libs.formatNum(item.energy_today, '#,###.##')} kWh</p> : ""}
+                    {!Libs.isBlank(item.energy_today) ? <p>{Libs.formatNum(item.energy_today, '#,###.##')} kWh</p> : "N/A"}
                 </div>
                 <div style={{width: "150px"}}  className="body-col width10">
-                    {!Libs.isBlank(item.last_month) ? <p>{Libs.formatNum(item.last_month, '#,###.##')} kWh</p> : ""}
+                    {!Libs.isBlank(item.last_month) ? <p>{Libs.formatNum(item.last_month, '#,###.##')} kWh</p> : "N/A"}
                 </div>
 
                 <div style={{width: "150px"}}  className="body-col width10">
-                    {!Libs.isBlank(item.lifetime) ? <p>{Libs.formatElectricalUnit(item.lifetime, 'h')}</p> : ""}
+                    {!Libs.isBlank(item.lifetime) ? <p>{Libs.formatElectricalUnit(item.lifetime, 'h')}</p> : "N/A"}
                 </div>
 
 
