@@ -3,10 +3,6 @@ var url = window.location.hostname;
 var serverAPI = '';
 var serverData = '';
 switch (url) {
-    case 'backend.techedge.vn':
-        serverAPI = 'https://apibackend.techedge.vn';
-        serverData = 'https://apibackend.techedge.vn/uploads';
-        break;
     case 'solarmon.techedge.vn':
     case 'www.solarmon.techedge.vn':
     case 'www.devsolarmon.focustech.vn':
